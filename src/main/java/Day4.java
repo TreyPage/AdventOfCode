@@ -2,13 +2,6 @@ import java.util.*;
 
 public class Day4 {
 
-    //pid
-    //byr
-    //iyr
-    //eyr
-    //hgt
-    //hcl
-    //ecl
     public int day4() {
         final Set<String> requiredFields = Set.of("byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid");
         List<String> lines = Utils.readLines("src/main/resources/day4.txt");
