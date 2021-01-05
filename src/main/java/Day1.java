@@ -10,7 +10,7 @@ class Day1 {
     //System.out.println(new Day1().day1());
     public int day1() throws FileNotFoundException {
 
-        String path = "src/input/day1.txt";
+        String path = "src/main/resources/day1.txt";
         File file = new File(path);
         Scanner scanner = new Scanner(file);
         int[] numbers = new int[200];

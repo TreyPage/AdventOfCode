@@ -12,7 +12,7 @@ class Day2 {
     public int day2() throws FileNotFoundException {
         int valid = 0;
 
-        String path = "src/input/day2.txt";
+        String path = "src/main/resources/day2.txt";
         File file = new File(path);
         Scanner scanner = new Scanner(file);
         scanner.nextLine();
