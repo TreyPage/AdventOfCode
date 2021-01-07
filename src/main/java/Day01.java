@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-class Day1 {
+class Day01 {
 
     //Main method code to run this:
     //System.out.println(new Day1().day1());
     public int day1() throws FileNotFoundException {
 
-        String path = "src/main/resources/day1.txt";
+        String path = "src/main/resources/day01.txt";
         File file = new File(path);
         Scanner scanner = new Scanner(file);
         int[] numbers = new int[200];

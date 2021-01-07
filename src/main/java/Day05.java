@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class Day5 {
+public class Day05 {
 
     public int day5() {
-        List<String> lines = Utils.readLines("src/main/resources/day5.txt");
+        List<String> lines = Utils.readLines("src/main/resources/day05.txt");
         List<Integer> answer = new ArrayList<>();
         for (String line : lines) {
             int maxRowNum = 127;

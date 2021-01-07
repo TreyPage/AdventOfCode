@@ -5,14 +5,14 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-class Day2 {
+class Day02 {
 
     //Main method code to run this:
     //System.out.println(new Day2().day2());
     public int day2() throws FileNotFoundException {
         int valid = 0;
 
-        String path = "src/main/resources/day2.txt";
+        String path = "src/main/resources/day02.txt";
         File file = new File(path);
         Scanner scanner = new Scanner(file);
         scanner.nextLine();

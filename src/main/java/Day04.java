@@ -1,10 +1,10 @@
 import java.util.*;
 
-public class Day4 {
+public class Day04 {
 
     public int day4() {
         final Set<String> requiredFields = Set.of("byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid");
-        List<String> lines = Utils.readLines("src/main/resources/day4.txt");
+        List<String> lines = Utils.readLines("src/main/resources/day04.txt");
         List<String> passports = new ArrayList<>();
         String partialPassport = "";
         for (String line : lines) {

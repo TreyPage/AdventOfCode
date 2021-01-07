@@ -1,10 +1,10 @@
 import java.util.*;
 
-public class Day6 {
+public class Day06 {
 
     public int day6() {
         int total = 0;
-        List<String> lines = Utils.readLines("src/main/resources/day6.txt");
+        List<String> lines = Utils.readLines("src/main/resources/day06.txt");
         int users = 0;
         String group = "";
         for (String line : lines) {

@@ -1,14 +1,14 @@
 import org.junit.jupiter.api.Test;
 
-public class Day3Test {
+public class Day03Test {
 
     @Test
     public void testDay3() {
-        int one = new Day3().day3(1,1);
-        int two = new Day3().day3(3,1);
-        int three = new Day3().day3(5,1);
-        int four = new Day3().day3(7,1);
-        int five = new Day3().day3(1,2);
+        int one = new Day03().day3(1,1);
+        int two = new Day03().day3(3,1);
+        int three = new Day03().day3(5,1);
+        int four = new Day03().day3(7,1);
+        int five = new Day03().day3(1,2);
         int answer = one * two * three * four * five;
         System.out.println("Answer one: " + one);
         System.out.println("Answer two: " + two);
