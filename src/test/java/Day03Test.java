@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 public class Day03Test {
 
     @Test
-    public void testDay3() {
+    public void testDay03() {
         int one = new Day03().day3(1,1);
         int two = new Day03().day3(3,1);
         int three = new Day03().day3(5,1);

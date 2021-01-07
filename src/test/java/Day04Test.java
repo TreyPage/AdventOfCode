@@ -1,10 +1,10 @@
 import org.junit.jupiter.api.Test;
 
-class Day06Test {
+public class Day04Test {
 
     @Test
-    public void testDay06() {
-        long answer = new Day06().day6();
+    public void testDay04() {
+        int answer = new Day04().day4();
         System.out.println("Answer total: " + answer);
     }
 }
