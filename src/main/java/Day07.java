@@ -1,54 +1,65 @@
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Day07 {
 
-    private static final String THE_GOLDEN_TICKET = "shiny gold";
+    private List<Bag> allBags = new ArrayList<>();
 
-    public int day07() {
+    public long day07() {
         List<String> lines = Utils.readLines("src/main/resources/day07.txt");
-        Map<Integer, String> tempRules = new HashMap<>();
-        Map<String, String> rules = new HashMap<>();
-        int start = 0;
         for (String line : lines) {
-            tempRules.put(start++, line);
-        }
-        for (int i = 0; i < tempRules.size(); i++) {
-            String[] bagRule = tempRules.get(i).split("contain");
-            rules.put(bagRule[0].replace("contain", "").strip(), bagRule[1].strip());
-        }
-        int total = 0;
-        for (String rule : rules.keySet()) {
-            if (rules.get(rule).contains(THE_GOLDEN_TICKET)) {
-                total++;
-            } else if (checkOthers(rules, rule)) {
-                total++;
+            String[] lineData = line.split(" bags contain ");
+
+            if (lineData[1].equals("no other bags.")) continue;
+
+            Bag bag = getBag(lineData[0]);
+
+            String[] bagNames = lineData[1].replaceAll("( bag(s?)|\\.)", "")
+                    .split(", ");
+            for (String bagName : bagNames) {
+
+                int bagAmount = Integer.parseInt(bagName.substring(0, 1));
+                Bag bag1 = getBag(bagName.substring(2));
+
+                for (int i = 0; i < bagAmount; i++) {
+                    bag.addNewBag(bag1);
+                }
             }
         }
-        return total;
+        return bagsInside(getBag("shiny gold"), 0);
     }
 
-    private boolean checkOthers(Map<String, String> rules, String rule) {
-        String[] ruleToCheck = rules.get(rule).replaceAll("[0-9]", "").split(",");
-        for (String check : ruleToCheck) {
-            check = check.replace(".", "").strip();
-            if (!check.endsWith("s")){
-                check = check + "s";
-            }
-            if (check.equals("no other bags")) {
-                return false;
-            }
-            try {
-                if (rules.get(check).contains(THE_GOLDEN_TICKET)) {
-                    return true;
-                } else if (checkOthers(rules, check)) {
-                    return true;
-                }
-            } catch (Exception e) {
-                // Do Nothing
-            }
+    private long bagsInside(Bag bag, long amount) {
+        amount += bag.getCanContain().size();
+        for (Bag bag1 : bag.getCanContain()) amount = bagsInside(bag1, amount);
+        return amount;
+    }
+
+    private Bag getBag(String name) {
+        Optional<Bag> optionalBag = allBags.stream().filter(bag ->
+                bag.getName().equals(name)).findFirst();
+        if (optionalBag.isEmpty()) return new Bag(name);
+        return optionalBag.get();
+    }
+
+    public class Bag {
+        String name;
+        List<Bag> canContain = new ArrayList<>();
+
+        public Bag(String name) {
+            this.name = name;
+            allBags.add(this);
         }
-        return false;
+
+        public String getName() {
+            return name;
+        }
+
+        public List<Bag> getCanContain() {
+            return canContain;
+        }
+
+        public void addNewBag(Bag bag) {
+            this.canContain.add(bag);
+        }
     }
 }
